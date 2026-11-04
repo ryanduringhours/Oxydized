@@ -1,0 +1,536 @@
+<!DOCTYPE html> <!-- declares document as HTML 5 Document-->
+<html> <!-- root element of html page-->
+    <head><!-- element containing meta infromation-->
+        <!--title of page, shown in browser bar or page tab, used for SEO adn bookmarks-->
+        <title> 
+            Text notes for html
+        </title>
+        <!-- add favicon, the little icon next to the title -->
+        <link rel = "icon" type = "image/x-icon" href = "images/Andor_Bryar_pistol_13.JPG">
+        <style> /*
+        CSS Cascading Sheet Stye
+        added inline with attributes within elements
+        added internally with style element in head, like now
+        added externally using <link> element with an external CSS file
+        External CSS file usually preferred
+        in head element add
+        <link rel="stylesheet" href="file_address.css">
+        also used for other external resources
+        for inline, use style="color:red" format in attributes
+        */
+            .name_of_class{ /*targets specific classed, defined in attribute, . required*/
+                /*text related */
+                font-style: italic; /*for regular or italic*/
+                font-weight: bold; /*boldness, or can specify number as well*/
+                font-family: arial,'Times New Roman', Times, serif; /*fallback font family if font-style was not supported*/
+                font-size:20px;
+                text-align: center;
+                color: green; /*There are colour names*/
+                text-decoration: underline overline; /*for underlines, underline dotted, underline dotted red, green wavy underline, underline overline*/
+                /*element related*/
+                width: 600px;
+                height: 100px;
+                background-color: rgb(247, 247, 247 , 255); /*but colours can also be specified using rgb or rgba, a is the alpha which controls transparency*/
+                /*border related*/
+                border-style: dashed;
+                border-width: 2px;
+                border-color: blueviolet; /*Hex values such as #ff63477 or hsl(hue,saturation,lightness)*/
+                /*padding related*/
+                padding: 4px; /*space between text and border*/
+                /*margin related*/
+                margin: 4px; /*space between border and element limits*/
+                /*background image*/
+                background-image: url('images/Andor_Bryar_pistol_18.JPG'); /*background images can also be inserted with the style background-image: url('image.jpg'); can apply to page using body*/
+                background-repeat: no-repeat; /*image will repeate horizontally and vertically to fill the space,can be turned off with style background-repeat: no repeat*/
+                background-size: 100% 100%; /*cover to cover entire element USE 100% 100% TO STRETCH TO FIT*/
+                background-attachment: fixed; /*always covers element no stretching*/
+                
+            }
+            p { /* targets stlye on all classes, no . required*/
+                border: solid;
+            }
+
+              .youtube-subscribe{ /*selector: targets elements*/
+                background-color: rgb(213, 19, 19); /*CSS properties and values*/
+                color:white;
+                border: none;
+                height: 40px;
+                width: 120px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: opacity 2;
+                font-style: Arial;
+                font-size: 20 px;
+            }
+
+            .youtube-subscribe:hover{ /* psuedo class modifies the look of elements in a specific state, hover for mouse hover, active when the button is engaged*/
+                opacity: 0.7;
+            }
+
+            .youtube-subscribe:active{
+                opacity: 0.5;
+            }
+
+            table, th, td{
+                border-width: 1px;
+                border-style: solid;
+                /*border-collapse: collapse; removes the double border*/
+            }/* can further style tables by focusing on th and td*/
+            th, td{
+                background-color: rgb(217, 255, 217);
+                border-radius: 5px;
+                /* all the same stylings as other elements get*/
+                padding: 15px; /* the space between the text and border box */
+                border-spacing: 15px; /* the space between the border box and table grid*/
+                /*can be overidden by the width setting in the individual table styles*/
+            }
+            tr:nth-child(even) { /* the selector for even rows*/
+                background-color: #D6EEEE;
+            }
+            td:nth-child(even), th:nth-child(even) { /*selector for even coloums, including headers*/
+                background-color: #D6EEEE;
+            }
+            /*use a transparent colour from rgba to allow strips to have an overlap effect*/
+            tr {
+                border-bottom: 1px solid #ddd;
+                /* for row only lines*/
+            }
+            tr:hover{
+                background-color: #D6EEEE;
+                /*for colour change during mouse hover*/
+            }
+            /*list style for navigational baR */
+            .navigation_bar {
+                list-style-type: none; /* removes bullet points*/
+                margin: 0;
+                padding: 0;
+                overflow: hidden; /*what happens when content is too big, hidden cips content*/
+                background-color: #333333;
+            }
+
+            .navigation_button {
+                float: left; /*the reason why list wraps to the left*/
+            }
+
+            .navigation_button a { /*applyes to <a> url elements within class*/
+                display: block; /*Element is rendered as a block-level element*/
+                color: white;
+                text-align: center;
+                padding: 16px;
+                text-decoration: none;
+            }
+
+            .navigation_bar a:hover {
+                background-color: #111111;
+            }
+
+            .div_main{
+                width:100%;
+                overflow:auto;
+            }
+            .div_example{
+                float:left; /* older method to creating in line div elements*/
+                width:32%;
+            }
+            .div_example_inline{
+                width: 30%;
+                display: inline-block;
+            }
+            .div_flex_example{
+                display:flex;
+            }
+            .div_flex_example > div{ /*> apply to direct children only within this one*/
+                width:33%;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: 33% 33% 33%;
+            }
+            /*id attribute, similat to class, but unique to 1 html element, mainly for javascript to manipulate specific element*/
+            #remove_button{
+                border-style: solid;
+                border-width:2px;
+                background-color: red;
+                width: 100px;
+                height: 30px;
+            }
+            @media screen and (max-width: 800px) {
+            .left, .main, .right {
+             width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+            }
+}
+        </style>
+        <!-- define metadata about page-->
+        <meta charset = "UTF-8">
+        <meta name = "keywords" content = "Practice, HTML, Notes"> <!-- keywords for search engines-->
+        <meta name = "description" content = "Personal notes for W3school HTML course"> <!-- description of content-->
+        <meta name = "author" content = "Ryan Oxy"> <!-- author of page-->
+        <!--<meta http-equiv="refresh" content = "60"> <!--Refresh document every 30 seconds-->
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0"> 
+        <!-- fits viewport to device dimensions to look nice-->
+        <!-- other settings to make a webpage scale across different devices, aka responsive web design
+        use width property to and set to 100%, or better yet, max-width set to 100%, it wont exceed the original size. the height set auto
+        picture element to show different images depending on viewport size
+        responsive text sizes via the vw unit, viewport width. Scales relative to viewport width 1 = 1%
+        use media queries to adjust layout depending on view port width
+        -->
+        <base href = "host_url" target = "_blank"> <!-- declares base url and or target for all relativev url on page-->
+        <!-- also sets the default behaviour or links to _blank, meaning open in new window-->
+    </head>
+    <body><!-- element containing visible contents of page-->
+        <h1> <!-- heading elemen, supports from h1 to h6, h1 the most important-->
+            <!-- elements block and bold, with decreasing font size-->
+            heading
+        </h1>
+        <p> <!-- paragraph element, default block display, 1em top and bottom margins-->
+            <!-- em is relative to font size, 1em is 100% of font size-->
+            paragraph<br> <!-- line break, doesnt require end tag, used within paragraphs or headers-->
+            with linebreak
+        </p>
+
+        <a href="https://www.google.com" target = " _self"> <!-- html link element, link in href attribute-->
+            url <!-- not actual link, but display text-->
+            <!-- target element 
+            _self, default same window/tab
+            _blank, opens in new window or tab
+            _parent, opens in parent frame
+            _top, opens in full window 
+            -->
+            <!--
+            absolute vs relative URL
+            absolute, full address of web address
+            relative, relative to the open HTML file
+            It is best practice to use relative file paths
+            -->
+            <!-- image as link-->
+             <img src="images/800px-Andor_Bryar_pistol_1.jpg" alt="reference image" style="width:42px;height:42px;">
+             <!-- alt - alternate text if image cannot be displayed, useful for context in event of webpage failure
+              style:width:hight: recomended over width and height as prevents style sheets from changing image size
+              gifs also accpetable-->
+              <!-- other tags inlcude
+              map - defines image as map 
+              area - defines clickable area within map
+              picture - defines container for multiple images
+              -->
+
+        </a>
+        <!-- e mail link-->
+         <a href="mailto:oxymakesstuff@gmail.com">Opens up email app for user</a>
+        <!-- for some reason, they use javaScript code to make a button open a link, but I'm pretty sure there is another way-->
+         <button disabled title="go to youtube" onclick="document.location='https://www.youtube.com/'">HTML tutorial</button>
+         <!-- declare disabled to deactivate button
+         type attribute
+        - button, clickable button
+        - submit, for form submission
+        - reset, clears form entry 
+         -->
+
+
+        <!-- title for tool tip, useful for all link types-->
+
+        <img src = "images/600px-M-20_Bryar.JPG" alt="bryer pistol" style="width:100px;height:100px;" usemap = "#tree"> 
+        <!-- image element, src attribute to locate image, alt attribute for alternative text to show if image does not load or web readers-->
+        <map name="tree"> <!--creates areas of the image that are clickable, name of map attributed on image with usemap = "#name", hashtag required-->
+            <area shape="rect" coords="0,0,50,50" alt="top left" href="https://www.youtube.com/">
+            <!--coordinates area x1 y1 x2 y2 from the top left of the margin-->
+            <!-- shapes include rect for rectangle, circle, poly for polygon, default for whole region-->
+            <area shape="rect" coords="50,50,100,100" alt="top left" href="https://www.reddit.com/">
+            <!--also can be used to trigger javascript function with onclick = "myfunction()"
+            then using a script element to define the function-->
+        </map>
+        
+        <p title = "attributes" class="name_of_class">
+            lang in html - define declares language, en for english, en-US for US english
+            title attribute - sets title of element which appears as tooltip when mouse over element
+            use of double quotes prefered, both usable, requires the other if either quotes are in the text
+            <img src="images/9we0wpcp2hwf1.png" alt="laptop wallpapre" style="float:right;width:42px;height:42px;">
+            images can be inserted in paragraphs, using the float left or right style
+        </p>
+        <p title = "headings">
+            recomend 1 h1 tag per page, dont use as formating            
+        </p>
+        <hr> <!-- horizontal rule, used for thematic break in HTML Page,inserts horizongtal line-->
+        <pre>
+            preformatted text, preserves space and line      breaks in text, 
+            otherwise there is no break
+                 or weird spacing
+                            such as this
+        </pre>
+        <p title = "formatting elements">
+            <b>bold</b>
+            <strong>important text</strong> <!-- typically bold-->
+            <i> italic</i>
+            <em> emphasized </em> <!-- typically italic, screen readers will read with stronger tone-->
+            <mark> marked </mark> <!--marked or highlighted-->
+            <small> smaller </small>
+            <del> deleted </del> <!-- deleted from document, shown as strikethrough-->
+            <ins> inserted</ins> <!-- inserted, shown as underline-->
+            <sub> subscript</sub>
+            <sup> superscript </sup>
+        </p>
+        <blockquote cite = "https://www.w3schools.com/html/html_quotation_elements.asp">
+            defines a section that is quoted from another source, adds a tab to indicate its a different section
+        </blockquote>
+        <p>
+            q tag adds quotes within text paragraphs
+            <q>
+                short quote here
+            </q>
+            then continues afterwards.<br>
+            or adding citations with <cite>WWW school</cite> which is where most of this tutorial is from<br>
+            abbriviations added with <abbr title="abbreviations"> ABBR</abbr> which is useful for translation or search engines. Also shows up when hovering over a text<br>
+            Bi Directional override <bdo dir = "rtl">changes direction of the text, not sure why you'd want that</bdo>
+        </p>
+        <address>
+            formatting for address infromation,<br>
+            person<br>
+            their address<br>
+            and email<br>
+            yada yada
+        </address>
+        <a href = "https://www.youtube.com/">
+            <!--insert from acesibility website
+            You can make a button that acts like a link or make a link that looks like a button but should avoid doing this. Links and buttons have different roles. If you must choose between the two, for example, if you are implementing a design created by a UX designer, make a link that is styled to look like a button. Using a button as a link can cause issues for users who navigate using their keyboard or who use a screen reader.
+            -->
+            <button class = "youtube-subscribe">
+                subscribe
+            </button>
+        </a>
+        <picture>
+            <!-- to select image file to display depending on browser support or device-->
+            <!-- set multiple images, the first compatible on will be display, the rest ignored-->
+            <source media = "(min-width: 650px)" srcset = "images/9we0wpcp2hwf1.png">
+            <source media="(min-width: 465px)" srcset="images/Andor_Bryar_pistol_2.jpg">
+            <!-- switching between these two seem to be active , just by changing browser width-->
+            <img src="images/Andor_Bryar_pistol_3.jpg">
+            <!-- always use an image source, if the browser does not support picture or none of the conditions are met-->
+        </picture>
+        <table style="width:100%"><!-- organise and display data-->
+            <colgroup><!-- selector for columns for styling-->
+                <col span="1" style="background-color: #D6EEEE">
+                <col span="1"> <!-- empty selector to not style-->
+                <col span="1" style="background-color: pink"  style="visibility: collapse">
+                <!-- visibilit:collapse style to hide column-->
+            </colgroup>
+             <tr> <!-- table row-->
+                <th  style="width:70%" colspan="2">Part</th><!--table header, style here to apply to column--> 
+                <!-- colspan to increase the span of the element, used for header of multiple columns or rol-->
+                <th rowspan="2">name</th>
+                <th>cost</th>
+             </tr>
+             <tr style="height:200px"> <!-- applies style to row-->
+                <td>CPU</td> <!-- table data-->
+                <td>Ryzen 7 9800x3d</td>
+                <td>500</td>
+             </tr>
+             <tr>
+                <!-- headers could also be placed in the first element of each row to get a header column-->
+                <td>RAM</td>
+                <td>16GB DDR5</td>
+                <td>1000</td>
+             </tr>
+             <caption>whats a caption</caption><!-- caption of table, displays at the top-->
+        </table>
+        <ul style = "list-style-type: disc;"><!--ul for unordered, ol for ordered, meaning 1,2,3,4 -->
+            <!-- style = list-style-type for marker, disc for bullet, circle, square or none-->
+            <li>Motherboard</li>
+            <ol type="1" start = "50"> <!-- nested lists-->
+                <!-- type attribute controls what type of list marker, 1 - number, A uppercase, a lower case, I uppercase roman, i lowercase roman-->
+                <!-- start attribute controls where the numbering starts-->
+                <li>CPU</li>
+                <li>GPU</li>
+                <li>CPU Cooler</li>
+                <li>Storage</li>
+            </ol>
+            <li>PSU</li>
+            <li>Case</li>
+        </ul>
+        <dl><!--description lists-->
+            <dt>CPU</dt> <!-- term -->
+            <dd>Central Processing Unit</dd> <!-- acompanying description-->
+            <dt>RAM</dt>
+            <dd>Random Access Memory</dd>
+        </dl>
+        <ul class="navigation_bar">
+            <li class = "navigation_button"><a href="#remove_button">remove button</a></li>
+            <!-- bookmarks, you can link to IDs to scroll to locatoin of the bookmark-->
+            <li class = "navigation_button"><a href="#news">News</a></li>
+            <li class = "navigation_button"><a href="#contact">Contact</a></li>
+            <li class = "navigation_button"><a href="#about">About</a></li>
+        </ul>
+        <!--Block elements : starts on a new line, browser automantically adds marjin before and after element-->
+        <!-- <p> and <div>-->
+        <!--inline elements : takes up width as necessary-->
+        <!-- <span>-->
+        <!-- div element, container for other elements, used for formantting and styling-->
+        <div class = "div_main">
+            <div class= "div_example left" style="background-color:grey;color:white; margin: auto;"> <!-- use auto margin to center align divs, only works on non-floated block elements -->
+                <h2>ferrothorn</h2>
+                <p>Grass and Steel type with two evolutions, very homophobic</p>
+            </div>
+            <div class= "div_example main" style="background-color:black;color:white; margin: auto;"> 
+                <h2>hydreigon</h2>
+                <p>dark and dragon, shiny looks like kermit</p>
+            </div>
+            <div class= "div_example right" style="background-color:blue;color:white; margin: auto;"> 
+                <h2>Swampert</h2>
+                <p>Water and Ground type, buff mega evolution</p>
+            </div>
+        </div>
+        <caption> inline example</caption>
+        <br>
+            <div class= "div_example_inline" style="background-color:grey;color:white;"> <!-- use auto margin to center align divs, only works on non-floated block elements -->
+                <h2>ferrothorn</h2>
+                <p>Grass and Steel type with two evolutions, very homophobic</p>
+            </div>
+            <div class= "div_example_inline" style="background-color:black;color:white;"> 
+                <h2>hydreigon</h2>
+                <p>dark and dragon, shiny looks like kermit</p>
+            </div>
+            <div class= "div_example_inline" style="background-color:blue;color:white;"> 
+                <h2>Swampert</h2>
+                <p>Water and Ground type, buff mega evolution</p>
+            </div>
+        </div>
+        <p>
+            using flex module
+        </p>
+        <div class = "div_flex_example">
+            <div style="background-color:grey;color:white;"> <!-- use auto margin to center align divs, only works on non-floated block elements -->
+                <h2>ferrothorn</h2>
+                <p>Grass and Steel type with two evolutions, very homophobic</p>
+            </div>
+            <div style="background-color:black;color:white;"> 
+                <h2>hydreigon</h2>
+                <p>dark and dragon, shiny looks like kermit</p>
+            </div>
+            <div style="background-color:blue;color:white;"> 
+                <h2>Swampert</h2>
+                <p>Water and Ground type, buff mega evolution</p>
+            </div>
+        </div>
+        <p>
+            using grid module
+        </p>
+        <div class="grid-container">
+            <div style="background-color:grey;color:white;"> <!-- use auto margin to center align divs, only works on non-floated block elements -->
+                <h2>ferrothorn</h2>
+                <p>Grass and Steel type with two evolutions, very homophobic</p>
+            </div>
+            <div style="background-color:black;color:white;"> 
+                <h2>hydreigon</h2>
+                <p>dark and dragon, shiny looks like kermit</p>
+            </div>
+            <div style="background-color:blue;color:white;"> 
+                <h2>Swampert</h2>
+                <p>Water and Ground type, buff mega evolution</p>
+            </div>
+        </div>
+
+
+        <!--span element, inline container, allows style to be applied to part of text -->
+        <p>My favourite colour is <span style="color:purple;font-weight:bold;">purple</span> and it goes well with <span style="color:yellow;font-weight:bold;background-color: black;">yellow</span></p>
+        <!-- javascript on class -->
+        <!-- lol, this hides it but doesn't unhide it -->
+         <button id="remove_button" onclick="hide_grid_containers()">Hide elements</button>
+         <!-- element contains javascript code to operate on the page, this one changes the style display attribute to none-->
+         <script> 
+            function hide_grid_containers() {
+            var x = document.getElementsByClassName("grid-container");
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById("remove_button").innerHTML = "killed it";
+            document.getElementById("remove_button").style.backgroundColor = "green";
+            //getElementById is common way to target specific element by name
+            //can use to edit style or properties of element, some properties may have slightly different names
+            }
+        </script>
+        <noscript>
+            Sorry, your browser has Javascript disabled 
+            //message shown if scripts not enabled
+        </noscript>
+        <button onclick="alert('why did you click that')">click me</button>
+        <!-- using javascript to trigger actions with the onclick attribute-->
+        <!-- form element, used to take data from user-->
+        <form action="/action_page.php">
+            First name: <input type="text" name="fname">
+            <br><br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset Form</button>
+        </form>
+        <!--iframe element, webpage within a webpage-->
+        <iframe src="https://www.google.com/" title = "youtube homepage" height="200" width="300" name = "iframe_example">
+            <!-- src for url, title for screen readers, firefox blocks it for security purposes
+             name is for link targeting-->
+        </iframe>
+        <p><a href="https://www.w3schools.com" target="iframe_example">W3Schools.com</a></p>
+        <!-- if link targets the name of an iframe, the link will be opened in the iframe-->
+
+        <!--elements for HTML to display computer code-->
+        <p> 
+            kbd for text indicating keyboard actions <kbd>Ctrl + S</kbd><br>
+            samp for output of computer program <samp>File not Found<br> Press F1 to continue</samp><br>
+            code for computer code <code> print("Hello World")</code><br>
+        </p>
+        <pre>
+            use pre to preserve line breaks and white space
+            <code>
+                x = 5;
+                y = 6;
+                z = x + y;
+            </code>
+            and var for variables , so here <var>x</var> and <var>y</var> and <var>z</var>
+        </pre>
+
+        <!--Semantic Elements
+        tags that describe purpose to browser and developer
+        section - section of a document
+        article - indipendent self contained content
+        header - introduction of content, logo, authorship information
+        footer - authorship information, copyright, contanct, sitemap, back to top link, related documents
+        nav - used to insert link for navigation
+        aside - content aside from content
+        figure - self contained illustration diagrap or photos
+        figcaption - captioins for figure, descriptionn or source
+        details - additional details that users can view or hide
+        footer - footer for document
+        main - main text of document
+        summary - visible heading for details element
+        time - date and time or document
+        generally makes export or import easier, and site reader convenience
+
+        entities
+        some symboles and entities are reserved in html so some disambiguation is needed
+        either &name or #number
+        &nbsp - non breaking space, a space that prevents breaking to new line
+        diacritical marks (letter)&#number to get accented letters
+        emojis require declartionof charset UTF-8 supports most of the emojis in the world
+        -->
+        <h2> Javascript tutorials</h2>
+        <button type="button" onclick="document.getElementById('get_date').innerHTML = Date()">Click me to display Date and Time.</button>
+        <!-- onclick uses javascript to edit the element with ID demo, changing inner HTML, property to Date(), wich retrieves the date and time-->
+        <p id="get_date"></p>
+        <p id="button_update">
+            There was a fire
+        </p>
+        <button type="button" onclick="document.getElementById('button_update').innerHTML = 'everything is gone'" > agnus</button>
+        <!-- use of single quotes, since double quotes already used for attribute assignment-->
+        <button onclick="document.getElementById('image_java').src='images/600px-M-20_Bryar.JPG'">Gun</button>
+        <img id="image_java" src="images/600px-M-20_Bryar.JPG" style="width:100px;height:80px;">
+        <button onclick="document.getElementById('image_java').src='images/Andor_Bryar_pistol_2.JPG'">Andor</button>
+        <!-- change of image via button-->
+        <p style="font-size: 8px;" id="the_suprise">big</p>
+        <button onclick="document.getElementById('the_suprise').style.fontSize = '40px'">get big</button>
+        <!-- use of different name of font_size-->
+        <p id="poof">Disapear</p> <!-- make elements appear and disapear by changing styles from none to block-->
+        <button onclick="document.getElementById('poof').style.display = 'none'">gone</button>
+
+        <!-- function blocks, where scripts are called during events-->
+        <script src="lescripts.js"></script> <!-- can also do it in relative address or url-->
+        <button type="button" onclick="document.write(5 + 6)">Try it</button> <!-- lmao, calling document write after the page loads will wipe out everything, then print the output-->
+        <button onclick="window.print()">Print this page</button> <!-- promts the literal printing of this page, like to a pdf-->
+        <button onclick="document.getElementById('print_sum').innerText = motorcycle.colour">get sum</button>
+        <p id = "print_sum">test</p>
+    </body>
+</html>
